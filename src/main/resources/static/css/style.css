@@ -1,0 +1,306 @@
+/* Reset style */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    font-size: 100%;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* Main style */
+
+html {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: normal;
+    color: #FFFFFF;
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    text-decoration: none;
+}
+
+input[type="text"], input[type="date"] {
+    box-sizing: border-box;
+    display: block;
+    height: 75px;
+    background: #FFFFFF no-repeat;
+    padding: 20px 21px 21px 57px;
+    width: 362px;
+    border-radius: 10px;
+    border: 0;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 34px;
+    color: black;
+}
+
+select {
+    box-sizing: border-box;
+    display: block;
+    height: 75px;
+    background: #FFFFFF no-repeat;
+    padding: 20px 21px 21px 57px;
+    width: 362px;
+    border-radius: 10px;
+    border: 0;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 34px;
+    color: black;
+}
+
+input[type="text"] {
+    background-image: url("../img/svg/search/ic_outline-location-on.svg");
+    background-position:  12px 15px;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    background-image: url("../img/svg/search/ic_twotone-calendar-month.svg");
+}
+
+input[type="submit"] {
+    box-sizing: border-box;
+    display: block;
+    height: 75px;
+    background: #144556 url("../img/svg/search/ic_sharp-search.svg") no-repeat 231px 20px;
+    padding: 20px 102px 21px 74px;
+    width: 272px;
+    border-radius: 10px;
+    border: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 34px;
+    color: white;
+}
+
+.wrapper {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header style start */
+
+.header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 92px;
+    background: #144556;
+    z-index: 100;
+}
+.header_wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+.navigation__list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    align-items: center;
+}
+.navigation__item {
+    margin-right: 47px;
+}
+.navigation__item:last-child {
+    margin-right: 0;
+    margin-left: 125px;
+}
+.navigation__link {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+    color: #BBBBCB;
+}
+.navigation__link:hover, .header_link:focus {
+    color: white;
+}
+.header_logo-link {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 29px;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+}
+
+/* Header style end */
+
+/* Footer style start */
+
+.footer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-content: center;
+    flex-wrap: wrap;
+    background: #144556;
+    padding-top: 51px;
+    padding-bottom: 42px;
+}
+.contact-info__title {
+    display: flex;
+    justify-content: center;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 39px;
+    margin-bottom: 32px;
+}
+.contact-info__vars {
+    display: flex;
+    margin-bottom: 68px;
+    gap: 106px;
+}
+.contact-info__link {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 15px;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 29px;
+    text-decoration: none;
+    color: #FFFFFF;
+}
+.copyright-info {
+    display: flex;
+    justify-content: center;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+}
+
+/* Footer style end */
+
+/* Intro style start */
+
+.intro {
+    background-image: url("../img/jpg/intro/plane-background.jpg");
+    box-sizing: border-box;
+    padding-top: 213px;
+    padding-bottom: 86px;
+}
+.intro__title {
+    margin-bottom: 36px;
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 61px;
+    color: rgba(0, 0, 0, 0.9);
+}
+.search-form-block {
+    padding: 64px 18px;
+    max-height: 340px;
+    background: rgba(57, 182, 227, 0.9);
+    border-radius: 10px;
+}
+.search-form {
+
+}
+.search-form-inputs {
+    display: flex;
+    gap: 39px;
+    margin-bottom: 61px;
+}
+.search-form__submit-block {
+    display: flex;
+    justify-content: end;
+}
+
+/* Intro style end */
+
+/* Partners style start */
+
+.partners {
+    background: #FFFFFF;
+    padding-top: 135px;
+    padding-bottom: 163px;
+
+}
+.partners__title {
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 44px;
+    margin-bottom: 53px;
+    color: #000000;
+}
+.partners-info-block {
+    display: flex;
+    justify-content: center;
+    gap: 31px;
+}
+.partners-info__name {
+    height: 119px;
+    background: #144556;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+    margin-bottom: 63px;
+}
+.partners-info__desc {
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 29px;
+    color: #000000;
+}
+
+/* Partners style end */

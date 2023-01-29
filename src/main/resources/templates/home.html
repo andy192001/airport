@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/css/style.css" th:href="@{/css/style.css}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <title>Airport - Home</title>
+</head>
+<body>
+    <header class="header">
+        <div class="wrapper header_wrapper">
+            <div class = "logo">
+                <a href="/flights" class="header_logo-link">
+                    <img class="header_logo-pic" src = "../static/img/svg/logo/ph_airplane-tilt-light.svg" th:src="@{img/svg/logo/ph_airplane-tilt-light.svg}" alt="AirportXYZ"/>
+                    AirportXYZ
+                </a>
+            </div>
+
+            <nav class="navigation">
+                <ul class="navigation__list">
+                    <li class="navigation__item">
+                        <a href="/flights" class="navigation__link">Home</a>
+                    </li>
+                    <li class="navigation__item">
+                        <a href="#" class="navigation__link">Flights</a>
+                    </li>
+                    <li class="navigation__item">
+                        <a href="#" class="navigation__link">Contact</a>
+                    </li>
+                    <li class="navigation__item">
+                        <a href="#" class="navigation__link">Amenities</a>
+                    </li>
+                    <li class="navigation__item">
+                        <a href="#" class="navigation__link">News</a>
+                    </li>
+                    <li class="navigation__item">
+                        <a href="" class="navigation__link">
+                            <img class="header_logo-pic" src = "/static/img/svg/contact-ico.svg" th:src="@{img/svg/contact-ico.svg}" alt="Contact Us ico"/>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="main">
+        <section class="intro">
+            <div class="wrapper intro__wraper">
+                <div class="intro-heading">
+                    <h1 class="intro__title">
+                        Find a ticket
+                    </h1>
+                    <div class="search__container">
+                        <div class="search-form-block">
+                            <form th:action="@{flights/search}" method="get" class="search-form">
+                                <div class="search-form-inputs">
+                                    <div>
+                                        <select th:name="departure">
+                                            <option th:each="airport : ${airports}"
+                                                    th:text="${airport.name}"
+                                                    th:value="${airport.id}">
+                                            </option>
+                                        </select>>
+                                    </div>
+                                    <div>
+                                        <select th:name="arrival">
+                                            <option th:each="airport : ${airports}"
+                                                    th:text="${airport.name}"
+                                                    th:value="${airport.id}">
+                                            </option>
+                                        </select>>
+                                    </div>
+                                    <div>
+                                        <input type="date" th:name="dateFrom" placeholder="When">
+                                    </div>
+                                </div>
+
+                                <div class="search-form__submit-block">
+                                    <input class="search-form__submit" type="submit" name="submit" value="Search">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="partners wrapper">
+            <h2 class="partners__title">
+                Partner Airlines
+            </h2>
+            <div class="partners-info-block">
+                <div class="partners-info__item">
+                    <div class="partners-info__name">
+                        Turkish airlines
+                    </div>
+                    <div class="partners-info__desc">
+                        Turkish Airlines is the flagship air carrier of Turkey. Based in Istanbul. Performs a number of regular flights on 118 international and 37 domestic routes to Europe, Asia, Africa, America. The airline's main hub is Istanbul International Airport, Istanbul.
+                    </div>
+                </div>
+                <div class="partners-info__item">
+                    <div class="partners-info__name">
+                        American airlines
+                    </div>
+                    <div class="partners-info__desc">
+                        American Airlines, Inc. — American airline, after the merger with US Airways, the largest airline in the world, the world leader in terms of the total number of passenger kilometers and the size of the passenger fleet. In 2007, the company transported 98,162 thousand passengers.
+                    </div>
+                </div>
+                <div class="partners-info__item">
+                    <div class="partners-info__name">
+                        Airasia
+                    </div>
+                    <div class="partners-info__desc">
+                        AirAsia is a Malaysian budget airline. It is the largest budget airline in Asia. It operates domestic and international flights to more than 400 destinations in 25 countries. The main transit hub of the airline is Kuala Lumpur International Airport.
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="contact-info">
+            <h2 class="contact-info__title">
+                Contact Us
+            </h2>
+            <div class="contact-info__vars">
+                <a href="tel:+380634545454" class="contact-info__link">
+                    <img src="/static/img/svg/footer/phone.svg" th:src="@{img/svg/footer/phone.svg}" alt="Phone icon"/>
+                    +380634545454s
+                </a>
+                <a href="mailto: dorozhkoandriy@gmail.com" class="contact-info__link">
+                    <img src="/static/img/svg/footer/mail.svg" th:src="@{img/svg/footer/mail.svg}" alt="Mail icon"/>
+                    dorozhkoandriy@gmail.com
+                </a>
+            </div>
+        </div>
+        <div class="copyright-info">
+            @Copyright 2021 Airport XYZ
+        </div>
+    </footer>
+</body>
+</html>

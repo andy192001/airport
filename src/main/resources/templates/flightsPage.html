@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../static/css/flight.css" th:href="@{/css/flight.css}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <title>Airport - Home</title>
+</head>
+<body>
+<header class="header">
+    <div class="wrapper header_wrapper">
+        <div class = "logo">
+            <a href="/flights" class="header_logo-link">
+                <img class="header_logo-pic" src = "../static/img/svg/logo/ph_airplane-tilt-light.svg" th:src="@{/img/svg/logo/ph_airplane-tilt-light.svg}" alt="AirportXYZ"/>
+                AirportXYZ
+            </a>
+        </div>
+
+        <nav class="navigation">
+            <ul class="navigation__list">
+                <li class="navigation__item">
+                    <a href="/flights" class="navigation__link">Home</a>
+                </li>
+                <li class="navigation__item">
+                    <a href="#" class="navigation__link">Flights</a>
+                </li>
+                <li class="navigation__item">
+                    <a href="#" class="navigation__link">Contact</a>
+                </li>
+                <li class="navigation__item">
+                    <a href="#" class="navigation__link">Amenities</a>
+                </li>
+                <li class="navigation__item">
+                    <a href="#" class="navigation__link">News</a>
+                </li>
+                <li class="navigation__item">
+                    <a href="" class="navigation__link">
+                        <img class="header_logo-pic" src = "/static/img/svg/contact-ico.svg" th:src="@{/img/svg/contact-ico.svg}" alt="Contact Us ico"/>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<main class="main">
+    <section class="intro">
+        <div class="wrapper intro__wraper">
+            <div class="intro-heading">
+                <h1 class="intro__title">
+                    Find a ticket
+                </h1>
+                <div class="search__container">
+                    <div class="search-form-block">
+                        <form th:action="@{flights/search}" method="get" class="search-form">
+                            <div class="search-form-inputs">
+                                <div>
+                                    <select th:name="departure">
+                                        <option th:each="airport : ${airports}"
+                                                th:text="${airport.name}"
+                                                th:value="${airport.id}">
+                                        </option>
+                                    </select>>
+                                </div>
+                                <div>
+                                    <select th:name="arrival">
+                                        <option th:each="airport : ${airports}"
+                                                th:text="${airport.name}"
+                                                th:value="${airport.id}">
+                                        </option>
+                                    </select>>
+                                </div>
+                                <div>
+                                    <input type="date" th:name="dateFrom" placeholder="When">
+                                </div>
+                            </div>
+
+                            <div class="search-form__submit-block">
+                                <input class="search-form__submit" type="submit" name="submit" value="Search">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container" th:each="flight : ${flightList}">
+            <div class="up">
+                <h1 th:text="${flight.airline}"></h1>
+            </div>
+
+            <div class="create-line"></div>
+
+            <div class="description">
+                <div class="description-one">
+                    <p>Flight TK-1410</p>
+                    <p>Boeing 737 MAX 8</p>
+                    <p>Economy class</p>
+                </div>
+                <div class="description-two">
+                    <b th:text="${flight.timeFrom}">11:30</b>
+                    <p th:text="${flight.dateFrom}">February 18, 2023</p>
+                    <p th:text="${flight.departuredLocation.name}">Vilnius VNO</p>
+                </div>
+                <div class="description-three">
+                    <b th:text="${flight.timeTo}">11:30</b>
+                    <p th:text="${flight.dateFrom}">February 18, 2023</p>
+                    <p th:text="${flight.arrivalLocation.name}">Vilnius VNO</p>
+                </div>
+            </div>
+
+            <div class="create-line"></div>
+
+            <div class="down">
+                <p >
+                    Cost: UAH 8,918
+                </p>
+                <div class="btn">
+                    <a th:href="@{/passenger/new/{flight_id}(flight_id=${flight.getId()})}">
+                        <input type="button" name="choose" value="Choose" >
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+<footer class="footer">
+    <div class="contact-info">
+        <h2 class="contact-info__title">
+            Contact Us
+        </h2>
+        <div class="contact-info__vars">
+            <a href="tel:+380634545454" class="contact-info__link">
+                <img src="/static/img/svg/footer/phone.svg" th:src="@{/img/svg/footer/phone.svg}" alt="Phone icon"/>
+                +380634545454s
+            </a>
+            <a href="mailto: dorozhkoandriy@gmail.com" class="contact-info__link">
+                <img src="/static/img/svg/footer/mail.svg" th:src="@{/img/svg/footer/mail.svg}" alt="Mail icon"/>
+                dorozhkoandriy@gmail.com
+            </a>
+        </div>
+    </div>
+    <div class="copyright-info">
+        @Copyright 2021 Airport XYZ
+    </div>
+</footer>
+</body>
+</html>
